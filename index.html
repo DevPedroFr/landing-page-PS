@@ -484,8 +484,9 @@
       Para cada depoimento, personalize: texto, nome, cargo e inicial do avatar.
     -->
     <div class="testimonials-track-wrapper">
-      <div class="testimonials-track" id="testimonialsTrack">
+      <div class="testimonials-track">
 
+        <!-- Set original -->
         <div class="testimonial-card">
           <div class="testimonial-stars">★★★★★</div>
           <p class="testimonial-text">A Pages&amp;Sites entregou exatamente o que eu precisava: um site profissional, claro e dentro do prazo. O atendimento foi humanizado e me senti acompanhada em cada etapa.</p>
@@ -534,16 +535,56 @@
           </div>
         </div>
 
-      </div>
-    </div>
+        <!-- Set duplicado para loop infinito -->
+        <div class="testimonial-card" aria-hidden="true">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">A Pages&amp;Sites entregou exatamente o que eu precisava: um site profissional, claro e dentro do prazo. O atendimento foi humanizado e me senti acompanhada em cada etapa.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">A</div>
+            <div>
+              <div class="testimonial-author-name">Ana Paula S.</div>
+              <div class="testimonial-author-role">Nutricionista Autônoma</div>
+            </div>
+          </div>
+        </div>
 
-    <div class="testimonials-nav">
-      <button class="nav-btn" id="prevBtn">←</button>
-      <div class="nav-dots" id="navDots">
-        <div class="nav-dot active"></div>
-        <div class="nav-dot"></div>
+        <div class="testimonial-card" aria-hidden="true">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">Precisava de uma landing page para meu curso e a Pages&amp;Sites entregou em menos de duas semanas. Profissional, organizada e com ótimo suporte pelo WhatsApp.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">C</div>
+            <div>
+              <div class="testimonial-author-name">Carlos M.</div>
+              <div class="testimonial-author-role">Instrutor de Cursos Online</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card" aria-hidden="true">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">Parceria incrível! Como agência, terceirizamos o desenvolvimento e mantemos o relacionamento com o cliente. Processo transparente e qualidade técnica excelente.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">M</div>
+            <div>
+              <div class="testimonial-author-name">Mariana F.</div>
+              <div class="testimonial-author-role">Diretora de Agência</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card" aria-hidden="true">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">Finalmente tenho um site que representa meu trabalho de verdade. A equipe entendeu meu negócio e criou algo único para mim. Recomendo muito!</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">R</div>
+            <div>
+              <div class="testimonial-author-name">Roberto L.</div>
+              <div class="testimonial-author-role">Consultor Financeiro</div>
+            </div>
+          </div>
+        </div>
+
       </div>
-      <button class="nav-btn" id="nextBtn">→</button>
     </div>
   </div>
 </section>
@@ -1085,15 +1126,18 @@ const mvvData = {
   }
 };
 
-document.querySelectorAll('.mvv-tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    const key = tab.dataset.tab;
-    document.querySelectorAll('.mvv-tab').forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
+function activateMvvTab(tab) {
+  const key = tab.dataset.tab;
+  document.querySelectorAll('.mvv-tab').forEach(t => t.classList.remove('active'));
+  tab.classList.add('active');
 
-    const content = document.getElementById('mvvContent');
-    const data = mvvData[key];
+  const content = document.getElementById('mvvContent');
+  const data = mvvData[key];
 
+  content.style.opacity = '0';
+  content.style.transform = 'translateY(10px)';
+
+  setTimeout(() => {
     if (key === 'valores') {
       content.innerHTML = `<h3>${data.title}</h3><ul class="mvv-values-list">${data.items.map(i => {
         const [bold, rest] = i.split(' — ');
@@ -1102,47 +1146,28 @@ document.querySelectorAll('.mvv-tab').forEach(tab => {
     } else {
       content.innerHTML = `<h3>${data.title}</h3><p>${data.text}</p>`;
     }
+    content.style.opacity = '1';
+    content.style.transform = 'translateY(0)';
+  }, 200);
+}
+
+const isTouchDevice = () => window.matchMedia('(pointer: coarse)').matches;
+let mvvHoverTimer = null;
+
+document.querySelectorAll('.mvv-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    clearTimeout(mvvHoverTimer);
+    activateMvvTab(tab);
   });
-});
 
-// ─── Testimonials slider ───
-const track = document.getElementById('testimonialsTrack');
-const cards = track.querySelectorAll('.testimonial-card');
-const dotsContainer = document.getElementById('navDots');
-let current = 0;
-const total = Math.ceil(cards.length / (window.innerWidth > 768 ? 3 : 1));
-
-function getVisibleCount() {
-  return window.innerWidth > 768 ? 3 : 1;
-}
-
-function updateSlider() {
-  const visible = getVisibleCount();
-  const cardWidth = cards[0].offsetWidth + 24;
-  track.style.transform = `translateX(-${current * visible * cardWidth}px)`;
-
-  document.querySelectorAll('.nav-dot').forEach((d, i) => {
-    d.classList.toggle('active', i === current);
+  tab.addEventListener('mouseenter', () => {
+    if (isTouchDevice()) return;
+    mvvHoverTimer = setTimeout(() => activateMvvTab(tab), 250);
   });
-}
 
-// Build dots
-const totalPages = Math.ceil(cards.length / 3);
-dotsContainer.innerHTML = '';
-for (let i = 0; i < totalPages; i++) {
-  const dot = document.createElement('div');
-  dot.className = 'nav-dot' + (i === 0 ? ' active' : '');
-  dot.addEventListener('click', () => { current = i; updateSlider(); });
-  dotsContainer.appendChild(dot);
-}
-
-document.getElementById('prevBtn').addEventListener('click', () => {
-  current = Math.max(0, current - 1);
-  updateSlider();
-});
-document.getElementById('nextBtn').addEventListener('click', () => {
-  current = Math.min(totalPages - 1, current + 1);
-  updateSlider();
+  tab.addEventListener('mouseleave', () => {
+    clearTimeout(mvvHoverTimer);
+  });
 });
 
 // ─── Scroll animations ───
