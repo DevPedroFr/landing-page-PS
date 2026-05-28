@@ -24,7 +24,7 @@
 <nav class="navbar" id="navbar">
   <div class="container nav-inner">
     <a href="#" class="nav-logo" aria-label="Pages e Sites">
-      <img src="image.png" alt="Pages e Sites" class="logo-image logo-image-nav" />
+      <img src="logo.png" alt="Pages e Sites" class="logo-image logo-image-nav" />
     </a>
 
     <ul class="nav-links">
@@ -76,7 +76,7 @@
         </div>
 
         <h1 class="hero-title">
-          Criamos sites e landing pages para <span class="line-accent">microempreendedores,</span> autônomos e agências.
+          Criamos sites e landing pages para <span class="line-accent">microempreendedores,</span> profissionais autônomos e agências que precisam de um parceiro técnico confiável.
         </h1>
 
         <p class="hero-sub">
@@ -330,6 +330,7 @@
       <span class="section-label">Nossas Soluções</span>
       <h2 class="section-title">Serviços para cada <span class="highlight">momento</span> do seu negócio</h2>
       <p class="section-subtitle">A Pages&amp;Sites desenvolve sites e landing pages pensados para ajudar pequenos negócios a se apresentarem de forma clara, profissional e organizada no ambiente digital.</p>
+      <p class="section-subtitle" style="margin-top:10px">Nossas páginas são projetadas para facilitar o contato com clientes, apresentar serviços e oferecer uma presença digital funcional, sem a necessidade de projetos complexos.</p>
     </div>
 
     <div class="services-grid">
@@ -373,20 +374,7 @@
       </div>
     </div>
 
-    <div class="services-grid-bottom">
-      <div class="service-card fade-up">
-        <span class="service-emoji"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="20" r="1.5"></circle><circle cx="18" cy="20" r="1.5"></circle><path d="M3 4h2l2.2 10.2a1 1 0 0 0 1 .8h9.8a1 1 0 0 0 1-.8L21 7H7"></path></svg></span>
-        <span class="service-tag orange">Venda online</span>
-        <h3>Site para Vendas (Marketplace)</h3>
-        <p>Para empreendedores e marcas que querem centralizar suas vendas em um único ambiente, com autonomia na gestão de pedidos, produtos e clientes. Cadastre produtos, organize categorias e acompanhe vendas.</p>
-        <ul class="service-features">
-          <li>Catálogo de produtos</li>
-          <li>Gestão de pedidos</li>
-          <li>Experiência de compra completa</li>
-          <li>Escalável para crescimento</li>
-        </ul>
-      </div>
-
+    <div class="services-grid-bottom" style="grid-template-columns:1fr;max-width:480px;margin:0 auto">
       <div class="service-card fade-up">
         <span class="service-emoji"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18h1a3 3 0 0 0 0-6h-1"></path><circle cx="7.5" cy="10.5" r="1"></circle><circle cx="12" cy="7.5" r="1"></circle><circle cx="16.5" cy="10.5" r="1"></circle></svg></span>
         <span class="service-tag teal">Identidade + Site</span>
@@ -414,56 +402,40 @@
       <p class="section-subtitle">Além da parte técnica, você pode contar com parceiros especializados em estratégia, marketing e outras demandas para o seu negócio.</p>
     </div>
 
-    <!--
-      ⚠️ IMAGEM EXTERNA NECESSÁRIA
-      Substitua os textos abaixo pelos logos reais dos parceiros da Pages&Sites.
-      Cada .partner-logo deve ter uma tag <img> com o logotipo do parceiro.
-      Exemplo: <img src="logo-parceiro.png" alt="Nome do Parceiro" />
-    -->
-    <div class="partners-carousel-wrapper">
-      <div class="partners-carousel" id="partnersCarousel">
-        <!-- Original set -->
-        <div class="partner-logo">Parceiro 1</div>
-        <div class="partner-logo">Parceiro 2</div>
-        <div class="partner-logo">Parceiro 3</div>
-        <div class="partner-logo">Parceiro 4</div>
-        <div class="partner-logo">Parceiro 5</div>
-        <div class="partner-logo">Parceiro 6</div>
-        <div class="partner-logo">Parceiro 7</div>
-        <div class="partner-logo">Parceiro 8</div>
-        <!-- Duplicated for infinite loop -->
-        <div class="partner-logo">Parceiro 1</div>
-        <div class="partner-logo">Parceiro 2</div>
-        <div class="partner-logo">Parceiro 3</div>
-        <div class="partner-logo">Parceiro 4</div>
-        <div class="partner-logo">Parceiro 5</div>
-        <div class="partner-logo">Parceiro 6</div>
-        <div class="partner-logo">Parceiro 7</div>
-        <div class="partner-logo">Parceiro 8</div>
+    <div class="partners-cards-grid">
+
+      <div class="partner-card fade-up">
+        <div class="partner-card-logo">
+          <img src="kdabra.png" alt="KDABRA — Automação de Processos" />
+        </div>
+        <div class="partner-card-info">
+          <h3 class="partner-card-name">KDABRA</h3>
+          <span class="partner-card-tag">Automação de Processos</span>
+        </div>
       </div>
+
+      <div class="partner-card fade-up">
+        <div class="partner-card-logo">
+          <img src="lefay.png" alt="LeFay — Branding e Endomarketing" />
+        </div>
+        <div class="partner-card-info">
+          <h3 class="partner-card-name">LeFay</h3>
+          <span class="partner-card-tag">Branding &amp; Endomarketing</span>
+        </div>
+      </div>
+
+      <div class="partner-card fade-up">
+        <div class="partner-card-logo partner-card-logo--photo">
+          <img src="midiasbybea.png" alt="Mídias by Bea — Social Media e Estratégia" />
+        </div>
+        <div class="partner-card-info">
+          <h3 class="partner-card-name">Mídias by Bea</h3>
+          <span class="partner-card-tag">Social Media &amp; Estratégia</span>
+        </div>
+      </div>
+
     </div>
 
-    <div class="partners-sectors">
-      <h3>Explore por <span class="highlight">categoria</span></h3>
-      <div class="sectors-grid">
-        <div class="sector-card fade-up">
-          <div class="sector-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 12-5v12L3 13z"></path><path d="M15 9h3a3 3 0 0 1 0 6h-3"></path><path d="M7 13v5a2 2 0 0 0 2 2h1"></path></svg></div>
-          <h4>Endomarketing</h4>
-        </div>
-        <div class="sector-card fade-up">
-          <div class="sector-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20v-3"></path></svg></div>
-          <h4>Marketing &amp; Gestão de Mídia</h4>
-        </div>
-        <div class="sector-card fade-up">
-          <div class="sector-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"></rect><path d="M9 9h6v6H9z"></path><path d="M9 1v3"></path><path d="M15 1v3"></path><path d="M9 20v3"></path><path d="M15 20v3"></path><path d="M20 9h3"></path><path d="M20 14h3"></path><path d="M1 9h3"></path><path d="M1 14h3"></path></svg></div>
-          <h4>Tecnologia &amp; Automação</h4>
-        </div>
-        <div class="sector-card fade-up">
-          <div class="sector-icon"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 14v8"></path><path d="M8 6a3 3 0 0 0-3 3v1a3 3 0 0 0 1.5 2.6"></path><path d="M16 6a3 3 0 0 1 3 3v1a3 3 0 0 1-1.5 2.6"></path><path d="M9.5 18A3.5 3.5 0 0 1 6 14.5V9a4.5 4.5 0 0 1 9 0v5.5a3.5 3.5 0 0 1-3.5 3.5Z"></path><path d="M14.5 18A3.5 3.5 0 0 0 18 14.5V9a4.5 4.5 0 0 0-9 0v5.5A3.5 3.5 0 0 0 12.5 18Z"></path></svg></div>
-          <h4>Treinamentos de Liderança</h4>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -609,10 +581,7 @@
             alt="Equipe Pages&Sites"
             loading="lazy"
           />
-          <div class="about-img-badge">
-            <strong>2026</strong>
-            <span>Fundada em</span>
-          </div>
+          
         </div>
       </div>
 
@@ -1012,7 +981,7 @@
 
       <div class="footer-brand">
         <div class="footer-brand-logo">
-          <img src="image.png" alt="Pages e Sites" class="logo-image logo-image-footer" />
+          <img src="logo.png" alt="Pages e Sites" class="logo-image logo-image-footer" />
         </div>
         <p>Sites e landing pages para microempreendedores, profissionais autônomos e agências que precisam de uma presença digital profissional e acessível.</p>
         <a href="https://wa.me/5500000000000" target="_blank" class="btn btn-whatsapp" style="font-size:.85rem;padding:10px 20px">
