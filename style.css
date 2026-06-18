@@ -384,10 +384,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   aspect-ratio: 4/3;
   background: var(--gray-200);
 }
-/* ⚠️ IMAGEM EXTERNA NECESSÁRIA — coloque uma imagem de pessoa trabalhando
-   com computador, escritório moderno ou mockup de site. Exemplo Unsplash:
-   https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800
-   Substitua o src abaixo no HTML pelo URL real da imagem. */
 .hero-img-wrapper img {
   width: 100%; height: 100%;
   object-fit: cover;
@@ -791,6 +787,132 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .service-card.featured .service-features li::before { color: var(--orange); }
 
 /* ════════════════════════════════════════
+   PORTFOLIO — IMAGENS SOLTAS
+════════════════════════════════════════ */
+.portfolio {
+  padding: 100px 0;
+  background: var(--bg-white);
+}
+.portfolio-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.portfolio-header .section-subtitle {
+  margin: 0 auto;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px 32px;
+}
+
+.portfolio-item {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: transform .4s cubic-bezier(.34,1.56,.64,1);
+  will-change: transform;
+}
+
+.portfolio-item:hover {
+  transform: translateY(-8px) scale(1.01);
+}
+
+.portfolio-image-wrapper {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--white);
+  box-shadow: 0 4px 24px rgba(0,0,0,.06);
+  transition: box-shadow .4s ease;
+  aspect-ratio: 16/10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.portfolio-item:hover .portfolio-image-wrapper {
+  box-shadow: 0 16px 48px rgba(15,143,143,.18);
+}
+
+.portfolio-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  background: var(--white);
+  transition: transform .5s ease;
+}
+
+.portfolio-item:hover .portfolio-image {
+  transform: scale(1.03);
+}
+
+.portfolio-info {
+  padding: 16px 4px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.portfolio-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.portfolio-btn {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: .85rem;
+  color: var(--teal-dark);
+  transition: color .3s ease, transform .3s ease;
+}
+
+.portfolio-item:hover .portfolio-btn {
+  color: var(--teal-light);
+  transform: translateX(4px);
+}
+
+/* Responsive Portfolio */
+@media (max-width: 1024px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 32px;
+  }
+  .portfolio-info {
+    padding: 12px 2px 0;
+  }
+  .portfolio-title {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio {
+    padding: 60px 0;
+  }
+  .portfolio-grid {
+    gap: 28px;
+  }
+}
+
+/* ════════════════════════════════════════
    PARTNERS
 ════════════════════════════════════════ */
 .partners {
@@ -1060,8 +1182,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   background: var(--gray-200);
   position: relative;
 }
-/* ⚠️ IMAGEM EXTERNA: foto da equipe ou fundadores da Pages&Sites
-   Ex: https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600 */
 .about-img-wrapper img {
   width: 100%; height: 100%;
   object-fit: cover;
