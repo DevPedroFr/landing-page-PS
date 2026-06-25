@@ -297,7 +297,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   right: 0;
   bottom: 0;
   background: var(--bg-white);
-  z-index: 999;
+  z-index: 1050;
   padding: 100px 32px 40px;
   display: flex;
   flex-direction: column;
@@ -308,6 +308,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transform: translateX(100%);
   transition: opacity .35s ease, transform .35s ease, visibility .35s ease;
 }
+
+
+.mobile-menu.open ~ * .hamburger,
+body:has(.mobile-menu.open) .hamburger {
+  visibility: hidden;
+}
+
+
 .mobile-menu.open {
   opacity: 1;
   visibility: visible;
