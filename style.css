@@ -1014,6 +1014,12 @@ body:has(.mobile-menu.open) .hamburger {
   }
 }
 
+
+.diff-grid {
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+
 @media (max-width: 480px) {
   .portfolio {
     padding: 60px 0;
